@@ -1,0 +1,49 @@
+'use strict'
+const jwt=require('jwt-simple')
+const moment=require('moment')
+const config=require('../config')
+
+const accessDataModel = require('../models/access_data')
+function getCategorias(req, res){
+    //console.log('GET /api/categoria-producto')
+    //console.log(req.body)
+   // const token =req.headers.tokenauthorization
+  //  const payload=jwt.decode(token,config.SECRET_TOKEN)
+   // console.log(payload.sub)
+    let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 7}]
+                    
+   accessDataModel.executeStoredProcedureProductos(res, array,
+     'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-product'}, {result_api: null}], 1)
+
+}
+function getClientes(req, res){
+    //console.log('GET /api/categoria-producto')
+    //console.log(req.body)
+   // const token =req.headers.tokenauthorization
+  //  const payload=jwt.decode(token,config.SECRET_TOKEN)
+   // console.log(payload.sub)
+    let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 21}]
+                    
+   accessDataModel.executeStoredProcedureProductos(res, array,
+     'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
+
+}
+function getProducts(req, res){
+    console.log(req.params)
+    //console.log(req.body)
+   
+var fecha = moment().format("YYYY/MM/DD");
+console.log(fecha)
+    let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 16},
+    {"nombre":"code_id", "tipo": accessDataModel.sqlapi.Int, "valor": req.params.code_id},
+    {"nombre":"chofer", "tipo": accessDataModel.sqlapi.Int, "valor": req.params.chofer},
+    {"nombre":"fechapedido", "tipo": accessDataModel.sqlapi.NVarChar(50), "valor": fecha}]
+                    
+   accessDataModel.executeStoredProcedureProductos(res, array,
+     'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-product'}, {result_api: null}], 1)
+}
+module.exports = {
+    getCategorias,
+    getProducts,
+    getClientes
+}
