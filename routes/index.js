@@ -21,6 +21,11 @@ res.status(200).send({message:'Tienes Acceso'})
 /////////  Repartidor   ///////////////////////
 api.post("/repartidor/login", clientCtrl.postRepartidorAuth)
 api.get('/repartidor/clientes',productCtrl.getClientes)
+api.get('/repartidor/productos',productCtrl.getProductos)
+api.get('/repartidor/precios',productCtrl.getPrecios)
+api.get('/repartidor/pedidos/:idrepartidor',productCtrl.getPedidos)
+api.get('/repartidor/detalles/:idrepartidor',productCtrl.getDetalles)
+api.post('/repartidor/clients', clientCtrl.postClientMovil)
 ///////////AQUIIIIIIIIIIIIIIIIIII
 api.get("/orders/:code_id/:credito/:latitud/:longitud", ordersCtrl.postPedidos)
 

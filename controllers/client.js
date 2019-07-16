@@ -48,15 +48,6 @@ if(erros){
      return
 
 }
-
-  /*  if(isValidEmail(req.body.mail)==false ){
-        res.status(401).send({code:5,message:'La Dirección De Correo Es Invalido. Inserte Un Correo Valido'})
-        return
-    }
-    if(!req.body.password_cli){
-       res.status(401).send({code:7,message:'Contraseña Invalida. Por Favor Inserte Una Valida'})
-      return
-    }*/
     let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 1}, /*1 Opción de registro de cliente*/
                  {"nombre":"code_id", "tipo": accessDataModel.sqlapi.Int, "valor": 0},
                  {"nombre":"full_name", "tipo": accessDataModel.sqlapi.NVarChar(50), "valor": req.body.full_name},
@@ -75,6 +66,26 @@ if(erros){
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,req.body.mail)
 
 }
+function postClientMovil(req, res){
+
+
+  
+    let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 111}, /*1 Opción de registro de cliente*/
+                 {"nombre":"code_id", "tipo": accessDataModel.sqlapi.Int, "valor": 0},
+                 {"nombre":"full_name", "tipo": accessDataModel.sqlapi.NVarChar(50), "valor": req.body.namecliente},
+                 {"nombre":"business_name", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.namecliente},
+                 {"nombre":"nit", "tipo": accessDataModel.sqlapi.NVarChar(20), "valor": req.body.nit},
+                 {"nombre":"mail", "tipo": accessDataModel.sqlapi.NVarChar(255), "valor": ""},
+                 {"nombre":"phone", "tipo": accessDataModel.sqlapi.NVarChar(50), "valor": req.body.telefono},
+                 {"nombre":"cell_phone", "tipo": accessDataModel.sqlapi.NVarChar(50), "valor": req.body.telefono},
+                 {"nombre":"address", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.direccion},
+                 {"nombre":"observacion", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.codigogenerado},
+                 {"nombre":"location_lat", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.latitud},
+                 {"nombre":"location_log", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.longitud}]
+                    
+   accessDataModel.executeStoredProcedure(res, array,
+     'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,req.body.namecliente+" Con Codigo: "+req.body.codigogenerado)
+   }
 
 function putClient(req, res){
 }
@@ -143,5 +154,6 @@ module.exports = {
     deleteClient,
     putRecoverPassword,
     postClientAuth,
-    postRepartidorAuth
+    postRepartidorAuth,
+    postClientMovil
 }
