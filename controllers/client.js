@@ -66,6 +66,22 @@ if(erros){
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,req.body.mail)
 
 }
+
+///postTrackingMovil
+
+function postTrackingMovil(req, res){
+
+
+  
+    let array = [{"nombre":"ldchof", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.ldchof},
+                 {"nombre":"ldfec", "tipo": accessDataModel.sqlapi.Date, "valor": req.body.ldfec},
+                 {"nombre":"ldhora", "tipo": accessDataModel.sqlapi.NVarChar(8), "valor": req.body.ldhora},
+                 {"nombre":"lblat", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.lblat},
+                 {"nombre":"lblongi", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.lblongi}]
+                    
+   accessDataModel.executeStoredProcedureLocation(res, array,
+     'sp_Insert_TL002', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,req.body.namecliente+" Con Codigo: "+req.body.codigogenerado)
+   }
 function postClientMovil(req, res){
 
 
@@ -86,7 +102,38 @@ function postClientMovil(req, res){
    accessDataModel.executeStoredProcedure(res, array,
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,req.body.namecliente+" Con Codigo: "+req.body.codigogenerado)
    }
-
+   function postPedidoMovil(req, res){
+        /*this.oanumi = oanumi;
+            this.oafdoc = oafdoc;
+            this.oahora = oahora;
+            this.oaccli = oaccli;
+            this.cliente = cliente;
+            this.oarepa = oarepa;
+            this.oaest = oaest;
+            this.oaobs = oaobs;
+            this.latitud = latitud;
+            this.longitud = longitud;
+            this.total = total;
+            this.tipocobro = tipocobro;
+            this.estado = estado;
+            this.codigogenerado = codigogenerad*/
+    let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 26}, /*1 Opción de registro de cliente*/
+                 {"nombre":"oanumi", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oanumi},
+                 {"nombre":"oafdoc", "tipo": accessDataModel.sqlapi.Date, "valor": req.body.oafdoc},
+                 {"nombre":"oahora", "tipo": accessDataModel.sqlapi.NVarChar(10), "valor": req.body.oahora},
+                 {"nombre":"oaccli", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.oaccli},
+                 {"nombre":"oarepa", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.oarepa},
+                 {"nombre":"oaest", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.oaest},
+                 {"nombre":"oaobs", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.oaobs},
+                 {"nombre":"latitud", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.latitud},
+                 {"nombre":"longitud", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.longitud},
+                 {"nombre":"total", "tipo": accessDataModel.sqlapi.Decimal(18,2), "valor": req.body.total},
+                 {"nombre":"tipocobro", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.tipocobro},
+                 {"nombre":"codigogenerado", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.codigogenerado}]
+                    
+   accessDataModel.executeStoredProcedure(res, array,
+     'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,"Pedido: "+req.body.oanumi)
+   }
 function putClient(req, res){
 }
 
@@ -155,5 +202,7 @@ module.exports = {
     putRecoverPassword,
     postClientAuth,
     postRepartidorAuth,
-    postClientMovil
+    postClientMovil,
+    postTrackingMovil,
+    postPedidoMovil
 }

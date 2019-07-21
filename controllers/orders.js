@@ -27,7 +27,21 @@ function postPedidos(req, res){
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/orders'}, {result_api: null}], 1)
 
 }
+function postDetallePedido(req, res){
+    //console.log('GET /api/categoria-producto')
+    //console.log(req.body)
+  const oanumi=req.params.oanumi;
 
+    const detalle=js2xmlparser.parse("row", req.body)
+    //console.log(detalle)
+    let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 27},
+    {"nombre":"oanumi", "tipo": accessDataModel.sqlapi.Int, "valor": oanumi},
+    {"nombre":"TO0011", "tipo": accessDataModel.sqlapi.Xml, "valor": detalle}]
+                    
+   accessDataModel.executeStoredProcedurePedidosPost(res, array,
+     'sp_go_TC004_appMovil', [{operation_api: 'POST /api/orders'}, {result_api: null}], 1)
+
+}
 
 function getPedidos(req, res){
     //console.log('GET /api/categoria-producto')
@@ -63,5 +77,6 @@ function getPedidosProducts(req, res){
 module.exports = {
     postPedidos,
     getPedidos,
-    getPedidosProducts
+    getPedidosProducts,
+    postDetallePedido
 }

@@ -26,6 +26,9 @@ api.get('/repartidor/precios',productCtrl.getPrecios)
 api.get('/repartidor/pedidos/:idrepartidor',productCtrl.getPedidos)
 api.get('/repartidor/detalles/:idrepartidor',productCtrl.getDetalles)
 api.post('/repartidor/clients', clientCtrl.postClientMovil)
+api.post('/repartidor/tracking', clientCtrl.postTrackingMovil)
+api.post('/repartidor/pedido', clientCtrl.postPedidoMovil)
+api.post('/repartidor/detalle/:oanumi', ordersCtrl.postDetallePedido)
 ///////////AQUIIIIIIIIIIIIIIIIIII
 api.get("/orders/:code_id/:credito/:latitud/:longitud", ordersCtrl.postPedidos)
 
