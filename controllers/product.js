@@ -22,7 +22,8 @@ function getClientes(req, res){
    // const token =req.headers.tokenauthorization
   //  const payload=jwt.decode(token,config.SECRET_TOKEN)
    // console.log(payload.sub)
-    let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 21}]
+    let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 21},
+    {"nombre":"idRepartidor", "tipo": accessDataModel.sqlapi.Int, "valor": req.params.idrepartidor}]
                     
    accessDataModel.executeStoredProcedureProductos(res, array,
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)

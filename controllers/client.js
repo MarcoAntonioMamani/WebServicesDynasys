@@ -97,7 +97,8 @@ function postClientMovil(req, res){
                  {"nombre":"address", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.direccion},
                  {"nombre":"observacion", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.codigogenerado},
                  {"nombre":"location_lat", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.latitud},
-                 {"nombre":"location_log", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.longitud}]
+                 {"nombre":"location_log", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.longitud},
+                 {"nombre":"cczona", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.cczona}]
                     
    accessDataModel.executeStoredProcedure(res, array,
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,req.body.namecliente+" Con Codigo: "+req.body.codigogenerado)
