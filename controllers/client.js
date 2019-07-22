@@ -135,6 +135,29 @@ function postClientMovil(req, res){
    accessDataModel.executeStoredProcedure(res, array,
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,"Pedido: "+req.body.oanumi)
    }
+
+   function putPedidoMovil(req, res){
+    /*this.oanumi = oanumi;
+        this.oafdoc = oafdoc;
+        this.oahora = oahora;
+        this.oaccli = oaccli;
+        this.cliente = cliente;
+        this.oarepa = oarepa;
+        this.oaest = oaest;
+        this.oaobs = oaobs;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.total = total;
+        this.tipocobro = tipocobro;
+        this.estado = estado;
+        this.codigogenerado = codigogenerad*/
+let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 28}, /*1 Opción de registro de cliente*/
+             {"nombre":"oanumi", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oanumi}, /*1 Opción de registro de cliente*/
+             {"nombre":"oaest", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oaest}]
+                
+accessDataModel.executeStoredProcedure(res, array,
+ 'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,"Pedido: "+req.body.oanumi)
+}
 function putClient(req, res){
 }
 
@@ -205,5 +228,6 @@ module.exports = {
     postRepartidorAuth,
     postClientMovil,
     postTrackingMovil,
-    postPedidoMovil
+    postPedidoMovil,
+    putPedidoMovil
 }
