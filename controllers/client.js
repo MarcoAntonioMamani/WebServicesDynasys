@@ -153,7 +153,9 @@ function postClientMovil(req, res){
         this.codigogenerado = codigogenerad*/
 let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 28}, /*1 Opción de registro de cliente*/
              {"nombre":"oanumi", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oanumi}, /*1 Opción de registro de cliente*/
-             {"nombre":"oaest", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oaest}]
+             {"nombre":"oaest", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oaest},
+             {"nombre":"oaobs", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oaobs},
+             {"nombre":"oafdoc", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oafdoc}]
                 
 accessDataModel.executeStoredProcedurePutPedido(res, array,
  'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,"Pedido: "+req.body.oanumi)
