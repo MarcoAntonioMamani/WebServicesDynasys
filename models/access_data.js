@@ -37,10 +37,10 @@ function VerificarCuentaRepartidor(res,email,pass,array){
             res.status(500).send({code:3,message:'La conexión ha sido interrumpida',token:0,id:0})
         } else {
             // console.log(result.recordsets[0].length) // count of rows contained in first recordset 
-          // console.log(result.recordset[0]["code_id"]) // first recordset from result.recordsets 
+           console.log(result.recordset[0]) // first recordset from result.recordsets 
           try {
             if(result.recordsets[0].length==1){             
-                res.status(200).send({code:0,message:'Usuario logueado exitosamente',token:result.recordset[0]["repartidor"],id:result.recordset[0]["code_id"],zona:result.recordset[0]["zona"]})
+                res.status(200).send({code:0,message:'Usuario logueado exitosamente',token:result.recordset[0]["repartidor"],id:result.recordset[0]["code_id"],zona:result.recordset[0]["zona"],mapa:result.recordset[0]["mapa"],pedido:result.recordset[0]["pedido"]})
               }else{         
                res.status(200).send({code:4,message:'Datos inválidos. por favor inserte un correo y una contraseña válida',token:"Failed",id:0,zona:0})         
                }
