@@ -104,7 +104,28 @@ function postClientMovil(req, res){
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,req.body.namecliente+" Con Codigo: "+req.body.codigogenerado)
    }
 
+   function postClientMovilRepartidor(req, res){
 
+  
+  
+    let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 112}, /*1 Opción de registro de cliente*/
+                 {"nombre":"code_id", "tipo": accessDataModel.sqlapi.Int, "valor": 0},
+                 {"nombre":"full_name", "tipo": accessDataModel.sqlapi.NVarChar(50), "valor": req.body.namecliente},
+                 {"nombre":"business_name", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.namecliente},
+                 {"nombre":"nit", "tipo": accessDataModel.sqlapi.NVarChar(20), "valor": req.body.nit},
+                 {"nombre":"mail", "tipo": accessDataModel.sqlapi.NVarChar(255), "valor": ""},
+                 {"nombre":"phone", "tipo": accessDataModel.sqlapi.NVarChar(50), "valor": req.body.telefono},
+                 {"nombre":"cell_phone", "tipo": accessDataModel.sqlapi.NVarChar(50), "valor": req.body.telefono},
+                 {"nombre":"address", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.direccion},
+                 {"nombre":"observacion", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.codigogenerado},
+                 {"nombre":"location_lat", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.latitud},
+                 {"nombre":"location_log", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.longitud},
+                 {"nombre":"cczona", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.cczona},
+                 {"nombre":"idRepartidor", "tipo": accessDataModel.sqlapi.Int, "valor":   req.params.idrepartidor}]
+                    
+   accessDataModel.executeStoredProcedureInsertCliente(res, array,
+     'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,req.body.namecliente+" Con Codigo: "+req.body.codigogenerado)
+   }
 
    function putClientMovil(req, res){  
     let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 30}, /*1 Opción de registro de cliente*/
@@ -253,5 +274,6 @@ module.exports = {
     postTrackingMovil,
     postPedidoMovil,
     putPedidoMovil,
-    putClientMovil
+    putClientMovil,
+    postClientMovilRepartidor
 }
