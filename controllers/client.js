@@ -191,12 +191,17 @@ function postClientMovil(req, res){
         this.longitud = longitud;
         this.total = total;
         this.tipocobro = tipocobro;
-        this.estado = estado;
+        this.estado = estado;@tipocobro@credito
         this.codigogenerado = codigogenerad*/
+        console.log("Tipo:"+req.body.tipocobro);
+        console.log("Total:"+req.body.total);
+        console.log("TotalCredito:"+req.body.totalcredito);
 let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 28}, /*1 Opción de registro de cliente*/
              {"nombre":"oanumi", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oanumi}, /*1 Opción de registro de cliente*/
              {"nombre":"oaest", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oaest},
              {"nombre":"oaobs", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oaobs},
+             {"nombre":"tipocobro", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.tipocobro},
+             {"nombre":"credito", "tipo": accessDataModel.sqlapi.Decimal(18,2), "valor": req.body.totalcredito},
              {"nombre":"oafdoc", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oafdoc}]
                 
 accessDataModel.executeStoredProcedurePutPedido(res, array,

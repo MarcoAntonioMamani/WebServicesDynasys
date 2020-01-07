@@ -334,7 +334,7 @@ function executeStoredProcedureProductos(res, array, spName, resultName, numberR
     //console.dir(array)
     
     array.forEach(function(element) {
-       // console.dir(element.nombre + " : " + element.tipo + " : " + element.valor)
+        //console.dir(element.nombre + " : " + element.tipo + " : " + element.valor)
         request.input(element.nombre, element.tipo, element.valor)    
     }, this);
 
@@ -343,8 +343,9 @@ function executeStoredProcedureProductos(res, array, spName, resultName, numberR
             console.log(`Error mientras consultaba el SP de la base de datos : ${err}`)
             res.status(500).send({code:3,message: 'La conexión ha sido interrumpida'})
         } else {
-       if(result.recordsets[0].length==1){
-        res.status(200).send(result.recordset)
+       if(result.recordsets.length==1){
+           //console(result.recordset)
+           res.status(200).send(result.recordset)
            }else{ 
          
                 res.status(200).send(result.recordset)
