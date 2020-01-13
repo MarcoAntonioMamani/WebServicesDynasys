@@ -90,7 +90,7 @@ function executeStoredProcedurePutPedido(res, array, spName, resultName, numberR
     //console.dir(array)
     
     array.forEach(function(element) {
-        console.dir(element.nombre + " : " + element.tipo + " : " + element.valor)
+        //console.dir(element.nombre + " : " + element.tipo + " : " + element.valor)
         request.input(element.nombre, element.tipo, element.valor)    
     }, this);
 

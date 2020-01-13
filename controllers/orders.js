@@ -48,7 +48,7 @@ function putDetallePedido(req, res){
 const oanumi=req.params.oanumi;
 
   const detalle=js2xmlparser.parse("row", req.body)
-  //console.log(detalle)
+ // console.log(detalle)
   let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 29},
   {"nombre":"oanumi", "tipo": accessDataModel.sqlapi.Int, "valor": oanumi},
   {"nombre":"TO0011", "tipo": accessDataModel.sqlapi.Xml, "valor": detalle}]
