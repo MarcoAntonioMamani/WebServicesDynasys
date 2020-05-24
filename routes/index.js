@@ -22,6 +22,9 @@ res.status(200).send({message:'Tienes Acceso'})
 ////// Clientes ////
 
 api.get('/repartidor/empresas',productCtrl.getEmpresas)
+api.get('/repartidor/empresas/productos',productCtrl.getEmpresasProductos)
+api.get('/repartidor/empresas/productosImagenes',productCtrl.getEmpresasProductosImagenes)
+api.get('/repartidor/empresas/categorias',productCtrl.getEmpresasCategorias)
 
 /////////  Repartidor   ///////////////////////
 api.post("/repartidor/login", clientCtrl.postRepartidorAuth)

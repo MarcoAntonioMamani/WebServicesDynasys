@@ -91,6 +91,42 @@ function getEmpresas(req, res){
    'MAM_AppMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
 
 }
+function getEmpresasCategorias(req, res){
+  //console.log('GET /api/categoria-producto')
+  //console.log(req.body)
+ // const token =req.headers.tokenauthorization
+//  const payload=jwt.decode(token,config.SECRET_TOKEN)
+ // console.log(payload.sub)
+  let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 4}]
+                  
+ accessDataModel.executeStoredProcedureProductos(res, array,
+   'MAM_AppMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
+
+}
+function getEmpresasProductos(req, res){
+  //console.log('GET /api/categoria-producto')
+  //console.log(req.body)
+ // const token =req.headers.tokenauthorization
+//  const payload=jwt.decode(token,config.SECRET_TOKEN)
+ // console.log(payload.sub)
+  let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 2}]
+                  
+ accessDataModel.executeStoredProcedureProductos(res, array,
+   'MAM_AppMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
+
+}
+function getEmpresasProductosImagenes(req, res){
+  //console.log('GET /api/categoria-producto')
+  //console.log(req.body)
+ // const token =req.headers.tokenauthorization
+//  const payload=jwt.decode(token,config.SECRET_TOKEN)
+ // console.log(payload.sub)
+  let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 3}]
+                  
+ accessDataModel.executeStoredProcedureProductos(res, array,
+   'MAM_AppMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
+
+}
 function getPedidos(req, res){
     //console.log('GET /api/categoria-producto')
     //console.log(req.body)
@@ -156,5 +192,8 @@ module.exports = {
     getDetalles,
     getStock,
     getZonas,
-    getEmpresas
+    getEmpresas,
+    getEmpresasProductos,
+    getEmpresasProductosImagenes,
+    getEmpresasCategorias
 }
