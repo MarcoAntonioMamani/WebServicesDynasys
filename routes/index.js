@@ -18,10 +18,19 @@ api.get('/private',authorization,function(req,res){
 res.status(200).send({message:'Tienes Acceso'})
 })
 
+
+////// Clientes ////
+
+api.get('/repartidor/empresas',productCtrl.getEmpresas)
+
 /////////  Repartidor   ///////////////////////
 api.post("/repartidor/login", clientCtrl.postRepartidorAuth)
 api.get('/repartidor/clientes/:idrepartidor',productCtrl.getClientes)
+api.get('/repartidor/zonas/:idrepartidor',productCtrl.getZonas)
 api.get('/repartidor/productos',productCtrl.getProductos)
+
+api.get('/repartidor/descuentos',productCtrl.getDescuentos)
+
 api.get('/repartidor/precios',productCtrl.getPrecios)
 api.get('/repartidor/pedidos/:idrepartidor',productCtrl.getPedidos)
 api.get('/stock/:idrepartidor',productCtrl.getStock)
@@ -44,4 +53,6 @@ api.get('/orders/:ordersID/products',auth,authorization,ordersCtrl.getPedidosPro
 /////////  PRODUCTOS  ////////
 api.get('/products/category',authorization,productCtrl.getCategorias)
 api.get('/products/category/:code_id/:chofer',productCtrl.getProducts)
+
+
 module.exports = api
