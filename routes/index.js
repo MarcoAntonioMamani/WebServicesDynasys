@@ -32,7 +32,7 @@ api.get('/repartidor/productos',productCtrl.getProductos)
 api.get('/repartidor/descuentos',productCtrl.getDescuentos)
 
 api.get('/repartidor/precios',productCtrl.getPrecios)
-api.get('/repartidor/pedidos/:idrepartidor',productCtrl.getPedidos)
+api.get('/repartidor/pedidos/:idrepartidor/:idZona',productCtrl.getPedidos)
 api.get('/stock/:idrepartidor',productCtrl.getStock)
 api.put('/repartidor/pedido', clientCtrl.putPedidoMovil)
 api.put('/repartidor/detalle/:oanumi', ordersCtrl.putDetallePedido)

@@ -98,7 +98,8 @@ function postClientMovil(req, res){
                  {"nombre":"observacion", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.codigogenerado},
                  {"nombre":"location_lat", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.latitud},
                  {"nombre":"location_log", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.longitud},
-                 {"nombre":"cczona", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.cczona}]
+                 {"nombre":"cczona", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.cczona},
+                 {"nombre":"RazonSocial", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.razon_social}]
                     
    accessDataModel.executeStoredProcedureInsertCliente(res, array,
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,req.body.namecliente+" Con Codigo: "+req.body.codigogenerado)
@@ -121,6 +122,7 @@ function postClientMovil(req, res){
                  {"nombre":"location_lat", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.latitud},
                  {"nombre":"location_log", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.longitud},
                  {"nombre":"cczona", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.cczona},
+                 {"nombre":"RazonSocial", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.razon_social},
                  {"nombre":"idRepartidor", "tipo": accessDataModel.sqlapi.Int, "valor":   req.params.idrepartidor}]
                     
    accessDataModel.executeStoredProcedureInsertCliente(res, array,
@@ -140,6 +142,7 @@ function postClientMovil(req, res){
                  {"nombre":"observacion", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.codigogenerado},
                  {"nombre":"location_lat", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.latitud},
                  {"nombre":"location_log", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.longitud},
+                 {"nombre":"RazonSocial", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.razon_social},
                  {"nombre":"cczona", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.cczona}]
                     
    accessDataModel.executeStoredProcedureInsertCliente(res, array,
@@ -202,7 +205,8 @@ let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 28},
              {"nombre":"oaobs", "tipo": accessDataModel.sqlapi.NVarChar(400), "valor": req.body.oaobs},
              {"nombre":"tipocobro", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.tipocobro},
              {"nombre":"credito", "tipo": accessDataModel.sqlapi.Decimal(18,2), "valor": req.body.totalcredito},
-             {"nombre":"oafdoc", "tipo": accessDataModel.sqlapi.Date, "valor": req.body.oafdoc}]
+             {"nombre":"oafdoc", "tipo": accessDataModel.sqlapi.Date, "valor": req.body.oafdoc},
+             {"nombre":"Reclamo", "tipo": accessDataModel.sqlapi.NVarChar(50), "valor": req.body.reclamo}]
                 
 accessDataModel.executeStoredProcedurePutPedido(res, array,
  'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,"Pedido: "+req.body.oanumi)

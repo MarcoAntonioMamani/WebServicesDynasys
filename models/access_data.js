@@ -40,7 +40,10 @@ function VerificarCuentaRepartidor(res,email,pass,array){
            console.log(result.recordset[0]) // first recordset from result.recordsets 
           try {
             if(result.recordsets[0].length==1){             
-                res.status(200).send({code:0,message:'Usuario logueado exitosamente',token:result.recordset[0]["repartidor"],id:result.recordset[0]["code_id"],zona:result.recordset[0]["zona"],mapa:result.recordset[0]["mapa"],pedido:result.recordset[0]["pedido"],update_cliente:result.recordset[0]["update_cliente"],categoria:result.recordset[0]["categoria"],stock:result.recordset[0]["stock"]})
+                res.status(200).send({code:0,message:'Usuario logueado exitosamente',token:result.recordset[0]["repartidor"],
+                id:result.recordset[0]["code_id"],zona:result.recordset[0]["zona"],mapa:result.recordset[0]["mapa"],
+                pedido:result.recordset[0]["pedido"],update_cliente:result.recordset[0]["update_cliente"],
+                categoria:result.recordset[0]["categoria"],stock:result.recordset[0]["stock"],view_credito:result.recordset[0]["ViewCredito"],cantidad_producto:result.recordset[0]["CantidadProducto"]})
               }else{         
                res.status(200).send({code:4,message:'Datos inválidos. por favor inserte un correo y una contraseña válida',token:"Failed",id:0,zona:0})         
                }
