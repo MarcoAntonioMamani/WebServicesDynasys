@@ -25,7 +25,7 @@ api.get('/repartidor/empresas',productCtrl.getEmpresas)
 
 /////////  Repartidor   ///////////////////////
 api.post("/repartidor/login", clientCtrl.postRepartidorAuth)
-api.get('/repartidor/clientes/:idrepartidor',productCtrl.getClientes)
+api.get('/repartidor/clientes/:idrepartidor/:idZona',productCtrl.getClientes)
 api.get('/repartidor/zonas/:idrepartidor',productCtrl.getZonas)
 api.get('/repartidor/productos',productCtrl.getProductos)
 
