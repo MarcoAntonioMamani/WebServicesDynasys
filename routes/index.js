@@ -25,6 +25,11 @@ api.get('/repartidor/empresas',productCtrl.getEmpresas)
 api.get('/repartidor/empresas/productos',productCtrl.getEmpresasProductos)
 api.get('/repartidor/empresas/productosImagenes',productCtrl.getEmpresasProductosImagenes)
 api.get('/repartidor/empresas/categorias',productCtrl.getEmpresasCategorias)
+////////Gerente  ///
+api.get('/sanbit/clientes',productCtrl.getClientesSanBit)
+api.get('/sanbit/productos',productCtrl.getProductosSanbit)
+api.get('/sanbit/precios',productCtrl.getPreciosSanBit)
+
 
 /////////  Repartidor   ///////////////////////
 api.post("/repartidor/login", clientCtrl.postRepartidorAuth)

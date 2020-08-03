@@ -30,6 +30,19 @@ function getClientes(req, res){
 
 }
 
+function getClientesSanBit(req, res){
+  //console.log('GET /api/categoria-producto')
+  //console.log(req.body)
+ // const token =req.headers.tokenauthorization
+//  const payload=jwt.decode(token,config.SECRET_TOKEN)
+ // console.log(payload.sub)
+  let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 5}]
+                  
+ accessDataModel.executeStoredProcedureProductos(res, array,
+   'MAM_AppMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
+
+}
+
 function getZonas(req, res){
     //console.log('GET /api/categoria-producto')
     //console.log(req.body)
@@ -55,6 +68,19 @@ function getProductos(req, res){
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
 
 }
+
+function getProductosSanbit(req, res){
+  //console.log('GET /api/categoria-producto')
+  //console.log(req.body)
+ // const token =req.headers.tokenauthorization
+//  const payload=jwt.decode(token,config.SECRET_TOKEN)
+ // console.log(payload.sub)
+  let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 6}]
+                  
+ accessDataModel.executeStoredProcedureProductos(res, array,
+   'MAM_AppMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
+
+}
 function getDescuentos(req, res){
   //console.log('GET /api/categoria-producto')
   //console.log(req.body)
@@ -77,6 +103,18 @@ function getPrecios(req, res){
                     
    accessDataModel.executeStoredProcedureProductos(res, array,
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
+
+}
+function getPreciosSanBit(req, res){
+  //console.log('GET /api/categoria-producto')
+  //console.log(req.body)
+ // const token =req.headers.tokenauthorization
+//  const payload=jwt.decode(token,config.SECRET_TOKEN)
+ // console.log(payload.sub)
+  let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 7}]
+                  
+ accessDataModel.executeStoredProcedureProductos(res, array,
+   'MAM_AppMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
 
 }
 function getEmpresas(req, res){
@@ -147,11 +185,10 @@ function getStock(req, res){
    // const token =req.headers.tokenauthorization
   //  const payload=jwt.decode(token,config.SECRET_TOKEN)
    // console.log(payload.sub)
-    let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 31},
-    {"nombre":"idRepartidor", "tipo": accessDataModel.sqlapi.Int, "valor": req.params.idrepartidor}]
+    let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 8}]
                     
    accessDataModel.executeStoredProcedureProductos(res, array,
-     'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
+     'MAM_AppMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
 
 }
 function getDetalles(req, res){
@@ -195,5 +232,8 @@ module.exports = {
     getEmpresas,
     getEmpresasProductos,
     getEmpresasProductosImagenes,
-    getEmpresasCategorias
+    getEmpresasCategorias,
+    getClientesSanBit,
+    getProductosSanbit,
+    getPreciosSanBit
 }
