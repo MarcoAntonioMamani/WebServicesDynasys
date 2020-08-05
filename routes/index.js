@@ -29,7 +29,7 @@ api.get('/repartidor/empresas/categorias',productCtrl.getEmpresasCategorias)
 api.get('/sanbit/clientes',productCtrl.getClientesSanBit)
 api.get('/sanbit/productos',productCtrl.getProductosSanbit)
 api.get('/sanbit/precios',productCtrl.getPreciosSanBit)
-
+api.get('/sanbit/stock',productCtrl.getStock)
 
 /////////  Repartidor   ///////////////////////
 api.post("/repartidor/login", clientCtrl.postRepartidorAuth)
