@@ -30,6 +30,8 @@ api.get('/sanbit/clientes',productCtrl.getClientesSanBit)
 api.get('/sanbit/productos',productCtrl.getProductosSanbit)
 api.get('/sanbit/precios',productCtrl.getPreciosSanBit)
 api.get('/sanbit/stock',productCtrl.getStock)
+api.get('/sanbit/pedidos',productCtrl.getPedidosSanBit)
+api.get('/sanbit/detalles',productCtrl.getDetallesSanBit)
 
 /////////  Repartidor   ///////////////////////
 api.post("/repartidor/login", clientCtrl.postRepartidorAuth)
