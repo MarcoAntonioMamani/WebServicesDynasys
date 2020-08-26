@@ -137,7 +137,7 @@ function executeStoredProcedurePostPedidos(res, array, spName, resultName, numbe
     //console.dir(array)
     
     array.forEach(function(element) {
-        console.dir(element.nombre + " : " + element.tipo + " : " + element.valor)
+      //  console.dir(element.nombre + " : " + element.tipo + " : " + element.valor)
         request.input(element.nombre, element.tipo, element.valor)    
     }, this);
 
@@ -154,13 +154,18 @@ function executeStoredProcedurePostPedidos(res, array, spName, resultName, numbe
          //   console.log(result.rowsAffected) // array of numbers, each number represents the number of rows affected by executed statemens 
            
          try {
-            if(result.recordsets[0].length==1){
+  
+            if(result.recordsets[0].length==1 && result.recordsets[0][0]["code_id"]>0){
                 resultName[1].result_api=result.recordset
-          
+               
                 //res.status(200).send(resultName)
+               
                 res.status(200).send({code:0,message:'Usuario creado exitosamente',token:result.recordset[0]["code_id"]})
             }else{
-    
+                
+                if (result.recordsets[0][0]["code_id"]<0){
+                    console.log("Error "+result.recordset)
+                }
                  resultName[1].result_api=result.recordset[numberRows-1]
                 // res.status(200).send(resultName)
                  res.status(200).send({code:2,message:'El pedido ya existe'})

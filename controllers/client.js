@@ -7,6 +7,7 @@ const service=require('../Services')
 var nodemailer = require('nodemailer')
 var validator = require('email-validator')
 var generator = require('generate-password')
+const js2xmlparser = require("js2xmlparser");
 function getClient(req, res){
   
 }
@@ -188,8 +189,8 @@ function postClientMovil(req, res){
         const oanumi=req.params.oanumi;
 
         const detalle=js2xmlparser.parse("row", req.body.detalle)
-        console.log(req.body)
-        console.log(detalle)
+        const stBody=js2xmlparser.parse("row", req.body)
+     
 let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 40}, /*1 Opción de registro de cliente*/
              {"nombre":"oanumi", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oanumi},
              {"nombre":"oafdoc", "tipo": accessDataModel.sqlapi.Date, "valor": req.body.oafdoc},
@@ -203,7 +204,8 @@ let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 40},
              {"nombre":"total", "tipo": accessDataModel.sqlapi.Decimal(18,2), "valor": req.body.total},
              {"nombre":"tipocobro", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.tipocobro},
              {"nombre":"codigogenerado", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.codigogenerado},
-             {"nombre":"TO0011", "tipo": accessDataModel.sqlapi.Xml, "valor": detalle}]
+             {"nombre":"TO0011", "tipo": accessDataModel.sqlapi.Xml, "valor": detalle},
+             {"nombre":"body", "tipo": accessDataModel.sqlapi.Xml, "valor": stBody}]
                 
 accessDataModel.executeStoredProcedurePostPedidos(res, array,
  'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,"Pedido: "+req.body.oanumi)
