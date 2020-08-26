@@ -30,6 +30,19 @@ function getClientes(req, res){
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
 
 }
+function getClientesAntiguo(req, res){
+  //console.log('GET /api/categoria-producto')
+  //console.log(req.body)
+ // const token =req.headers.tokenauthorization
+//  const payload=jwt.decode(token,config.SECRET_TOKEN)
+ // console.log(payload.sub)idZona
+  let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 21},
+  {"nombre":"idRepartidor", "tipo": accessDataModel.sqlapi.Int, "valor": req.params.idrepartidor}]
+                  
+ accessDataModel.executeStoredProcedureProductos(res, array,
+   'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
+
+}
 
 function getZonas(req, res){
     //console.log('GET /api/categoria-producto')
@@ -106,7 +119,19 @@ function getPedidos(req, res){
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
 
 }
+function getPedidosAntiguo(req, res){
+  //console.log('GET /api/categoria-producto')
+  //console.log(req.body)
+ // const token =req.headers.tokenauthorization
+//  const payload=jwt.decode(token,config.SECRET_TOKEN)
+ // console.log(payload.sub)
+  let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 24},
+  {"nombre":"idRepartidor", "tipo": accessDataModel.sqlapi.Int, "valor": req.params.idrepartidor}]
+                  
+ accessDataModel.executeStoredProcedureProductos(res, array,
+   'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
 
+}
 function getStock(req, res){
     //console.log('GET /api/categoria-producto')
     //console.log(req.body)
@@ -158,5 +183,7 @@ module.exports = {
     getDetalles,
     getStock,
     getZonas,
-    getEmpresas
+    getEmpresas,
+    getClientesAntiguo,
+    getPedidosAntiguo
 }

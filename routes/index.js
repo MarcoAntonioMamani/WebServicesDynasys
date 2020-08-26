@@ -26,6 +26,7 @@ api.get('/repartidor/empresas',productCtrl.getEmpresas)
 /////////  Repartidor   ///////////////////////
 api.post("/repartidor/login", clientCtrl.postRepartidorAuth)
 api.get('/repartidor/clientes/:idrepartidor/:idZona',productCtrl.getClientes)
+api.get('/repartidor/clientes/:idrepartidor',productCtrl.getClientesAntiguo)
 api.get('/repartidor/zonas/:idrepartidor',productCtrl.getZonas)
 api.get('/repartidor/productos',productCtrl.getProductos)
 
@@ -33,6 +34,7 @@ api.get('/repartidor/descuentos',productCtrl.getDescuentos)
 
 api.get('/repartidor/precios',productCtrl.getPrecios)
 api.get('/repartidor/pedidos/:idrepartidor/:idZona',productCtrl.getPedidos)
+api.get('/repartidor/pedidos/:idrepartidor',productCtrl.getPedidosAntiguo)
 api.get('/stock/:idrepartidor',productCtrl.getStock)
 api.put('/repartidor/pedido', clientCtrl.putPedidoMovil)
 api.put('/repartidor/detalle/:oanumi', ordersCtrl.putDetallePedido)
@@ -41,6 +43,7 @@ api.post('/repartidor/clients', clientCtrl.postClientMovil)
 api.post('/repartidor/clients/:idrepartidor', clientCtrl.postClientMovilRepartidor)
 api.post('/repartidor/tracking', clientCtrl.postTrackingMovil)
 api.post('/repartidor/pedido', clientCtrl.postPedidoMovil)
+api.post('/repartidor/pedidoDetalle', clientCtrl.postPedidoconDetalleMovil)
 api.post('/repartidor/detalle/:oanumi', ordersCtrl.postDetallePedido)
 api.put('/repartidor/clients', clientCtrl.putClientMovil)
 ///////////AQUIIIIIIIIIIIIIIIIIII

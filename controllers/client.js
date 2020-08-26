@@ -181,6 +181,34 @@ function postClientMovil(req, res){
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,"Pedido: "+req.body.oanumi)
    }
 
+
+   function postPedidoconDetalleMovil(req, res){
+   
+
+        const oanumi=req.params.oanumi;
+
+        const detalle=js2xmlparser.parse("row", req.body.detalle)
+        console.log(req.body)
+        console.log(detalle)
+let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 40}, /*1 Opción de registro de cliente*/
+             {"nombre":"oanumi", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oanumi},
+             {"nombre":"oafdoc", "tipo": accessDataModel.sqlapi.Date, "valor": req.body.oafdoc},
+             {"nombre":"oahora", "tipo": accessDataModel.sqlapi.NVarChar(10), "valor": req.body.oahora},
+             {"nombre":"oaccli", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.oaccli},
+             {"nombre":"oarepa", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.oarepa},
+             {"nombre":"oaest", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.oaest},
+             {"nombre":"oaobs", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.oaobs},
+             {"nombre":"latitud", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.latitud},
+             {"nombre":"longitud", "tipo": accessDataModel.sqlapi.Decimal(18,14), "valor": req.body.longitud},
+             {"nombre":"total", "tipo": accessDataModel.sqlapi.Decimal(18,2), "valor": req.body.total},
+             {"nombre":"tipocobro", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.tipocobro},
+             {"nombre":"codigogenerado", "tipo": accessDataModel.sqlapi.NVarChar(200), "valor": req.body.codigogenerado},
+             {"nombre":"TO0011", "tipo": accessDataModel.sqlapi.Xml, "valor": detalle}]
+                
+accessDataModel.executeStoredProcedurePostPedidos(res, array,
+ 'sp_go_TC004_appMovil', [{operation_api: 'POST /api/register-client'}, {result_api: null}], 1,"Pedido: "+req.body.oanumi)
+}
+
    function putPedidoMovil(req, res){
     /*this.oanumi = oanumi;
         this.oafdoc = oafdoc;
@@ -284,5 +312,6 @@ module.exports = {
     postPedidoMovil,
     putPedidoMovil,
     putClientMovil,
-    postClientMovilRepartidor
+    postClientMovilRepartidor,
+    postPedidoconDetalleMovil
 }
