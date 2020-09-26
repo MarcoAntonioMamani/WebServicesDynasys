@@ -34,6 +34,7 @@ api.get('/repartidor/descuentos',productCtrl.getDescuentos)
 
 api.get('/repartidor/precios',productCtrl.getPrecios)
 api.get('/repartidor/pedidos/:idrepartidor/:idZona',productCtrl.getPedidos)
+api.get('/repartidor/deudas',productCtrl.getDeudas)
 api.get('/repartidor/pedidos/:idrepartidor',productCtrl.getPedidosAntiguo)
 api.get('/stock/:idrepartidor',productCtrl.getStock)
 api.put('/repartidor/pedido', clientCtrl.putPedidoMovil)
