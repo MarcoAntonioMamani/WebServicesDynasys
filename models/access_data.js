@@ -126,7 +126,7 @@ function executeStoredProcedurePutPedido(res, array, spName, resultName, numberR
           catch(error) {
             console.error("BD Servidor: "+error);
             res.status(200).send({code:2,message:'Erro al actualizar Pedido BD'})
-            {result: result.recordset[numberRows-1]}
+         
           }
      
         }
