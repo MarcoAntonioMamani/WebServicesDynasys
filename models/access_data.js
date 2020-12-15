@@ -116,10 +116,10 @@ function executeStoredProcedurePutPedido(res, array, spName, resultName, numberR
                 res.status(200).send({code:0,message:'Pedido Actualizado Correctamente',token:result.recordset[0]["code_id"]})
             }else{
     
-                 resultName[1].result_api=result.recordset[numberRows-1]
+                 //resultName[1].result_api=result.recordset[numberRows-1]
                 // res.status(200).send(resultName)
                  res.status(200).send({code:2,message:'Erro al actualizar Pedido'})
-             {result: result.recordset[numberRows-1]}
+         
                  
              }
           }
