@@ -29,6 +29,7 @@ api.get('/repartidor/clientes/:idrepartidor/:idZona',productCtrl.getClientes)
 api.get('/repartidor/clientes/:idrepartidor',productCtrl.getClientesAntiguo)
 api.get('/repartidor/zonas/:idrepartidor',productCtrl.getZonas)
 api.get('/repartidor/productos',productCtrl.getProductos)
+api.get('/repartidor/productosRolon/:idrepartidor',productCtrl.getProductosRolon)
 
 api.get('/repartidor/descuentos',productCtrl.getDescuentos)
 
@@ -39,7 +40,10 @@ api.get('/repartidor/Cobranza/:idrepartidor',productCtrl.getCobranza)
 api.get('/repartidor/almacen/:idrepartidor',productCtrl.getalmacen)
 api.get('/repartidor/CobranzaDetalle/:idrepartidor',productCtrl.getCobranzaDetalle)
 api.get('/repartidor/pedidos/:idrepartidor',productCtrl.getPedidosAntiguo)
+
 api.get('/stock/:idrepartidor',productCtrl.getStock)
+api.get('/precios/categoria',productCtrl.getCategoriaPrecio)
+
 api.put('/repartidor/pedido', clientCtrl.putPedidoMovil)
 api.put('/repartidor/detalle/:oanumi', ordersCtrl.putDetallePedido)
 api.get('/repartidor/detalles/:idrepartidor',productCtrl.getDetalles)

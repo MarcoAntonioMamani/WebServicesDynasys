@@ -154,8 +154,9 @@ function executeStoredProcedurePostPedidos(res, array, spName, resultName, numbe
          //   console.log(result.rowsAffected) // array of numbers, each number represents the number of rows affected by executed statemens 
            
          try {
-  
-            if(result.recordsets[0].length==1 && result.recordsets[0][0]["code_id"]>0){
+          
+    
+            if(result.recordsets.length==1 && result.recordsets[0][0]["code_id"]>0){
                 resultName[1].result_api=result.recordset
                
                 //res.status(200).send(resultName)
@@ -352,7 +353,7 @@ function executeStoredProcedureProductos(res, array, spName, resultName, numberR
             res.status(500).send({code:3,message: 'La conexión ha sido interrumpida'})
         } else {
        if(result.recordsets.length==1){
-           //console(result.recordset)
+           //console(result.recordset.len)
            res.status(200).send(result.recordset)
            }else{ 
          

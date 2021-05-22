@@ -1,7 +1,7 @@
 module.exports = {
     port: process.env.PORT || 3050,
-    db: process.env.MSSQL || {server: 'localhost',
-                              database: 'BDDistBHF_Victor',
+    db: process.env.MSSQL || {server: 'DESKTOP-SB2Q2F5',
+                              database: 'BDDistBHF_Salvietti',
                               user: 'sa',
                               password: '123',
                               port: 1433},

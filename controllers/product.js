@@ -57,6 +57,20 @@ function getZonas(req, res){
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
 
 }
+function getProductosRolon(req, res){
+  //console.log('GET /api/categoria-producto')
+  //console.log(req.body)
+ // const token =req.headers.tokenauthorization
+//  const payload=jwt.decode(token,config.SECRET_TOKEN)
+ // console.log(payload.sub)
+  let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 22},
+  {"nombre":"idRepartidor", "tipo": accessDataModel.sqlapi.Int, "valor": req.params.idrepartidor}]
+                  
+ accessDataModel.executeStoredProcedureProductos(res, array,
+   'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
+
+}
+
 function getProductos(req, res){
     //console.log('GET /api/categoria-producto')
     //console.log(req.body)
@@ -171,7 +185,7 @@ function getCobranzaDetalle(req, res){
   {"nombre":"idRepartidor", "tipo": accessDataModel.sqlapi.Int, "valor": req.params.idrepartidor}]
                   
  accessDataModel.executeStoredProcedureProductos(res, array,
-   'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
+   'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-Cobranza'}, {result_api: null}], 1)
 
 }
 function getPedidosAntiguo(req, res){
@@ -198,6 +212,20 @@ function getStock(req, res){
                     
    accessDataModel.executeStoredProcedureProductos(res, array,
      'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
+
+}
+
+function getCategoriaPrecio(req, res){
+  //console.log('GET /api/categoria-producto')
+  //console.log(req.body)
+ // const token =req.headers.tokenauthorization
+//  const payload=jwt.decode(token,config.SECRET_TOKEN)
+ // console.log(payload.sub)
+  let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 43},
+  {"nombre":"idRepartidor", "tipo": accessDataModel.sqlapi.Int, "valor": req.params.idrepartidor}]
+                  
+ accessDataModel.executeStoredProcedureProductos(res, array,
+   'sp_go_TC004_appMovil', [{operation_api: 'POST /api/category-cliente'}, {result_api: null}], 1)
 
 }
 function getDetalles(req, res){
@@ -244,5 +272,7 @@ module.exports = {
     getDeudas,
     getCobranza,
     getCobranzaDetalle,
-    getalmacen
+    getalmacen,
+    getProductosRolon,
+    getCategoriaPrecio
 }
