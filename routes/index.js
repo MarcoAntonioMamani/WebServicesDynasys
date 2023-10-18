@@ -28,6 +28,7 @@ api.post("/repartidor/login", clientCtrl.postRepartidorAuth)
 api.get('/repartidor/clientes/:idrepartidor/:idZona',productCtrl.getClientes)
 api.get('/repartidor/clientes/:idrepartidor',productCtrl.getClientesAntiguo)
 api.get('/repartidor/zonas/:idrepartidor',productCtrl.getZonas)
+api.get('/repartidor/tipoNegocios',productCtrl.getTipoNegocios)
 api.get('/repartidor/productos',productCtrl.getProductos)
 api.get('/repartidor/productosRolon/:idrepartidor',productCtrl.getProductosRolon)
 
@@ -36,6 +37,8 @@ api.get('/repartidor/descuentos',productCtrl.getDescuentos)
 api.get('/repartidor/precios',productCtrl.getPrecios)
 api.get('/repartidor/pedidos/:idrepartidor/:idZona',productCtrl.getPedidos)
 api.get('/repartidor/deudas/:idrepartidor',productCtrl.getDeudas)
+api.get('/repartidor/visitas/:idrepartidor',productCtrl.getVisitas)
+api.get('/repartidor/points/:idrepartidor',productCtrl.getPoints)
 api.get('/repartidor/Cobranza/:idrepartidor',productCtrl.getCobranza)
 api.get('/repartidor/almacen/:idrepartidor',productCtrl.getalmacen)
 api.get('/repartidor/CobranzaDetalle/:idrepartidor',productCtrl.getCobranzaDetalle)
@@ -45,9 +48,13 @@ api.get('/stock/:idrepartidor',productCtrl.getStock)
 api.get('/precios/categoria',productCtrl.getCategoriaPrecio)
 
 api.put('/repartidor/pedido', clientCtrl.putPedidoMovil)
+api.put('/repartidor/pedidoV2', clientCtrl.putPedidoMovilV2)
 api.put('/repartidor/detalle/:oanumi', ordersCtrl.putDetallePedido)
 api.get('/repartidor/detalles/:idrepartidor',productCtrl.getDetalles)
 api.post('/repartidor/clients', clientCtrl.postClientMovil)
+
+api.post('/repartidor/visita', clientCtrl.postVisitaMovil)
+
 api.post('/repartidor/clients/:idrepartidor', clientCtrl.postClientMovilRepartidor)
 api.post('/repartidor/tracking', clientCtrl.postTrackingMovil)
 api.post('/repartidor/pedidoDetalleCF', clientCtrl.postPedidoMovil)
@@ -55,7 +62,9 @@ api.post('/repartidor/pedidoDetalleSalviety', clientCtrl.postPedidoMovilSalviety
 api.post('/repartidor/pedidoDetalle', clientCtrl.postPedidoconDetalleMovil)
 api.post('/repartidor/cobranza', clientCtrl.postCobranzaDetalleMovil)
 api.post('/repartidor/detalle/:oanumi', ordersCtrl.postDetallePedido)
-api.put('/repartidor/clients', clientCtrl.putClientMovil)
+api.put('/repartidor/clients/:idrepartidor', clientCtrl.putClientMovil)
+
+api.put('/repartidor/visita', clientCtrl.putVisitaMovil)
 ///////////AQUIIIIIIIIIIIIIIIIIII
 api.get("/orders/:code_id/:credito/:latitud/:longitud", ordersCtrl.postPedidos)
 
@@ -66,6 +75,6 @@ api.get('/orders/:ordersID/products',auth,authorization,ordersCtrl.getPedidosPro
 /////////  PRODUCTOS  ////////
 api.get('/products/category',authorization,productCtrl.getCategorias)
 api.get('/products/category/:code_id/:chofer',productCtrl.getProducts)
-
+api.get('/repartidor/listado/:idrepartidor',productCtrl.getListadoProducto)
 
 module.exports = api

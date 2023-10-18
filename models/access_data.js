@@ -43,7 +43,7 @@ function VerificarCuentaRepartidor(res,email,pass,array){
                 res.status(200).send({code:0,message:'Usuario logueado exitosamente',token:result.recordset[0]["repartidor"],
                 id:result.recordset[0]["code_id"],zona:result.recordset[0]["zona"],mapa:result.recordset[0]["mapa"],
                 pedido:result.recordset[0]["pedido"],update_cliente:result.recordset[0]["update_cliente"],
-                categoria:result.recordset[0]["categoria"],stock:result.recordset[0]["stock"],view_credito:result.recordset[0]["ViewCredito"],cantidad_producto:result.recordset[0]["CantidadProducto"],accesible:result.recordset[0]["Accesible"]})
+                categoria:result.recordset[0]["categoria"],stock:result.recordset[0]["stock"],view_credito:result.recordset[0]["ViewCredito"],cantidad_producto:result.recordset[0]["CantidadProducto"],accesible:result.recordset[0]["Accesible"],ValidarZona:result.recordset[0]["ValidarZona"],precio:result.recordset[0]["precio"],idConciliacion:result.recordset[0]["idConciliacion"],TipoNegocio:result.recordset[0]["TipoNegocio"],CategoriasProducts:result.recordset[0]["categorias"]})
               }else{         
                res.status(200).send({code:4,message:'Datos inválidos. por favor inserte un correo y una contraseña válida',token:"Failed",id:0,zona:0})         
                }
@@ -164,18 +164,15 @@ function executeStoredProcedurePostPedidos(res, array, spName, resultName, numbe
                 res.status(200).send({code:0,message:'Usuario creado exitosamente',token:result.recordset[0]["code_id"]})
             }else{
                 
-                if (result.recordsets[0][0]["code_id"]<0){
-                    console.log("Error "+result.recordset)
-                }
-                 resultName[1].result_api=result.recordset[numberRows-1]
+               
+                /// resultName[1].result_api=result.recordset[numberRows-1]
                 // res.status(200).send(resultName)
                  res.status(200).send({code:2,message:'El pedido ya existe'})
-             {result: result.recordset[numberRows-1]}
                  
              }
           }
           catch(error) {
-            console.error(error);
+            console.log(error);
             res.status(200).send({code:2,message:'Error con el servidor de Base de datos',token:0,id:0})
             // expected output: ReferenceError: nonExistentFunction is not defined
             // Note - error messages will vary depending on browser
@@ -249,6 +246,54 @@ function executeStoredProcedureInsertCliente(res, array, spName, resultName, num
           
                 //res.status(200).send(resultName)
                 res.status(200).send({code:0,message:'Usuario creado exitosamente',token:result.recordset[0]["code_id"],id:0})
+            }else{
+    
+                 resultName[1].result_api=result.recordset[numberRows-1]
+                // res.status(200).send(resultName)
+                 res.status(200).send({code:2,message:'El usuario '+mail+' '+'ya fue registrado en el sistema. por favor inserte otro usuario',token:0,id:0})
+             {result: result.recordset[numberRows-1]}
+                 
+             }
+          }
+          catch(error) {
+            console.error(error);
+            res.status(200).send({code:2,message:'Error con el servidor de Base de datos ',token:0,id:0})        
+            // expected output: ReferenceError: nonExistentFunction is not defined
+            // Note - error messages will vary depending on browser
+          }
+       
+        }
+    })
+}
+
+
+function executeStoredProcedureInsertVisita(res, array, spName, resultName, numberRows,mail) {
+    var request = new sqlapi.Request()
+    //console.dir(array)
+    
+    array.forEach(function(element) {
+        console.dir(element.nombre + " : " + element.tipo + " : " + element.valor)
+        request.input(element.nombre, element.tipo, element.valor)    
+    }, this);
+
+    request.execute(spName, function(err, result){
+        if (err) {
+            console.log(`Error mientras consultaba el SP de la base de datos : ${err}`)
+            res.status(500).send({code:3,message: 'La conexión ha sido interrumpida'})
+        } else {
+          // console.log(result.recordsets.length) // count of recordsets returned by the procedure 
+         //   console.log(result.recordsets[0].length) // count of rows contained in first recordset 
+          console.log(result.recordset) // first recordset from result.recordsets 
+       //    console.log(result.returnValue) // procedure return value 
+          //  console.log(result.output) // key/value collection of output values 
+         //   console.log(result.rowsAffected) // array of numbers, each number represents the number of rows affected by executed statemens 
+            
+         try {
+            if(result.recordsets[0].length==1){
+                resultName[1].result_api=result.recordset
+          
+                //res.status(200).send(resultName)
+                res.status(200).send({code:0,message:'Visita creado exitosamente',token:result.recordset[0]["id"],id:0})
             }else{
     
                  resultName[1].result_api=result.recordset[numberRows-1]
@@ -412,5 +457,6 @@ module.exports = {
     executeStoredProcedureLogin,
     executeStoredProcedurePutPedido,
     executeStoredProcedureInsertCliente,
-    executeStoredProcedurePostPedidos
+    executeStoredProcedurePostPedidos,
+    executeStoredProcedureInsertVisita
 }

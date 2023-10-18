@@ -51,7 +51,7 @@ const oanumi=req.params.oanumi;
  // console.log(detalle)
   let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 29},
   {"nombre":"oanumi", "tipo": accessDataModel.sqlapi.Int, "valor": oanumi},
-  {"nombre":"TO0011", "tipo": accessDataModel.sqlapi.Xml, "valor": detalle}]
+  {"nombre":"ventas1", "tipo": accessDataModel.sqlapi.Xml, "valor": detalle}]
                   
  accessDataModel.executeStoredProcedurePedidosPost(res, array,
    'sp_go_TC004_appMovil', [{operation_api: 'PUT /api/orders'}, {result_api: null}], 1)
