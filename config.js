@@ -1,7 +1,7 @@
 module.exports = {
     port: process.env.PORT || 3050,
     db: process.env.MSSQL || {server: '192.168.0.5',
-                              database: 'DistribucionDistralKCP',
+                              database: 'DistribucionDistralKCP2023',
                               user: 'marco',
                               password: '123',
                               port: 1433},

@@ -49,7 +49,7 @@ api.get('/precios/categoria',productCtrl.getCategoriaPrecio)
 
 api.put('/repartidor/pedido', clientCtrl.putPedidoMovil)
 api.put('/repartidor/pedidoV2', clientCtrl.putPedidoMovilV2)
-api.put('/repartidor/detalle/:oanumi', ordersCtrl.putDetallePedido)
+api.put('/repartidor/detalle/:oanumi/repartidor/:oarepa', ordersCtrl.putDetallePedido)
 api.get('/repartidor/detalles/:idrepartidor',productCtrl.getDetalles)
 api.post('/repartidor/clients', clientCtrl.postClientMovil)
 
