@@ -206,7 +206,7 @@ function postClientMovil(req, res){
 
             const detalle=js2xmlparser.parse("row", req.body.detalle)
             const stBody=js2xmlparser.parse("row", req.body)
-          console.log(req.body)
+         // console.log(req.body)
     let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 26}, /*1 Opción de registro de cliente*/
                  {"nombre":"oanumi", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.oanumi},
                  {"nombre":"oafdoc", "tipo": accessDataModel.sqlapi.Date, "valor": req.body.oafdoc},
@@ -304,7 +304,7 @@ function postCobranzaDetalleMovil(req, res){
   const detalle=js2xmlparser.parse("row", req.body.listDetalle)
   const stBody=js2xmlparser.parse("row", req.body)
 
-  console.log(req.body)
+ // console.log(req.body)
 
 let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 46}, /*1 Opción de registro de cliente*/
        {"nombre":"tenumi", "tipo": accessDataModel.sqlapi.NVarChar(100), "valor": req.body.tenumi},
@@ -334,9 +334,9 @@ accessDataModel.executeStoredProcedurePostPedidos(res, array,
         this.tipocobro = tipocobro;
         this.estado = estado;@tipocobro@credito
         this.codigogenerado = codigogenerad*/
-        console.log("Tipo:"+req.body.tipocobro);
-        console.log("Total:"+req.body.total);
-        console.log("TotalCredito:"+req.body.totalcredito);
+        //console.log("Tipo:"+req.body.tipocobro);
+        //console.log("Total:"+req.body.total);
+        //console.log("TotalCredito:"+req.body.totalcredito);
 let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 28}, /*1 Opción de registro de cliente*/
              {"nombre":"oanumi", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.oanumi}, /*1 Opción de registro de cliente*/
              {"nombre":"oaest", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.oaest},
@@ -364,10 +364,10 @@ function putPedidoMovilV2(req, res){
       this.tipocobro = tipocobro;
       this.estado = estado;@tipocobro@credito
       this.codigogenerado = codigogenerad*/
-      console.log("Tipo:"+req.body.tipocobro);
-      console.log("Total:"+req.body.total);
-      console.log("TotalCredito:"+req.body.totalcredito);
-      console.log("Estado:"+req.body.oaap);
+     // console.log("Tipo:"+req.body.tipocobro);
+      //console.log("Total:"+req.body.total);
+      //console.log("TotalCredito:"+req.body.totalcredito);
+      //console.log("Estado:"+req.body.oaap);
 let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 28}, /*1 Opción de registro de cliente*/
            {"nombre":"oanumi", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.oanumi}, /*1 Opción de registro de cliente*/
            {"nombre":"oaest", "tipo": accessDataModel.sqlapi.Int, "valor": req.body.oaest},
@@ -391,7 +391,7 @@ function deleteClient(req, res){
 
 function putRecoverPassword(req, res){
    // console.log('PUT /api/recover-password')
-    console.log(req.body.mail)
+   // console.log(req.body.mail)
     if(isValidEmail(req.body.mail)==false){
         res.status(200).send({code:5,message:'La dirección de correo es invalido. inserte un correo valido'})
         return

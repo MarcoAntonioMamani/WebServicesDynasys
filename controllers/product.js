@@ -297,7 +297,7 @@ function getDetalles(req, res){
 
 }
 function getProducts(req, res){
-    console.log(req.params)
+    //console.log(req.params)
     //console.log(req.body)
    
 var fecha = moment().format("YYYY/MM/DD");

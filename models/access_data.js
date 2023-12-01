@@ -37,7 +37,7 @@ function VerificarCuentaRepartidor(res,email,pass,array){
             res.status(500).send({code:3,message:'La conexión ha sido interrumpida',token:0,id:0})
         } else {
             // console.log(result.recordsets[0].length) // count of rows contained in first recordset 
-           console.log(result.recordset[0]) // first recordset from result.recordsets 
+          // console.log(result.recordset[0]) // first recordset from result.recordsets 
           try {
             if(result.recordsets[0].length==1){             
                 res.status(200).send({code:0,message:'Usuario logueado exitosamente',token:result.recordset[0]["repartidor"],
@@ -61,8 +61,8 @@ function VerificarCuentaRepartidor(res,email,pass,array){
 }
 function ExisteEMail(res,pass,email,array){
     let request = new sqlapi.Request()
-    console.log(pass)
-    console.log(email)
+    //console.log(pass)
+    //console.log(email)
       array.forEach(function(element) {
           request.input(element.nombre, element.tipo, element.valor)    
     }, this)
@@ -104,7 +104,7 @@ function executeStoredProcedurePutPedido(res, array, spName, resultName, numberR
         } else {
           // console.log(result.recordsets.length) // count of recordsets returned by the procedure 
          //   console.log(result.recordsets[0].length) // count of rows contained in first recordset 
-          console.log(result.recordset) // first recordset from result.recordsets 
+         // console.log(result.recordset) // first recordset from result.recordsets 
        //    console.log(result.returnValue) // procedure return value 
           //  console.log(result.output) // key/value collection of output values 
          //   console.log(result.rowsAffected) // array of numbers, each number represents the number of rows affected by executed statemens 
@@ -148,7 +148,7 @@ function executeStoredProcedurePostPedidos(res, array, spName, resultName, numbe
         } else {
           // console.log(result.recordsets.length) // count of recordsets returned by the procedure 
          //   console.log(result.recordsets[0].length) // count of rows contained in first recordset 
-          console.log(result.recordset) // first recordset from result.recordsets 
+         // console.log(result.recordset) // first recordset from result.recordsets 
        //    console.log(result.returnValue) // procedure return value 
           //  console.log(result.output) // key/value collection of output values 
          //   console.log(result.rowsAffected) // array of numbers, each number represents the number of rows affected by executed statemens 
@@ -197,7 +197,7 @@ function executeStoredProcedure(res, array, spName, resultName, numberRows,mail)
         } else {
           // console.log(result.recordsets.length) // count of recordsets returned by the procedure 
          //   console.log(result.recordsets[0].length) // count of rows contained in first recordset 
-          console.log(result.recordset) // first recordset from result.recordsets 
+          //console.log(result.recordset) // first recordset from result.recordsets 
        //    console.log(result.returnValue) // procedure return value 
           //  console.log(result.output) // key/value collection of output values 
          //   console.log(result.rowsAffected) // array of numbers, each number represents the number of rows affected by executed statemens 
@@ -224,7 +224,7 @@ function executeStoredProcedureInsertCliente(res, array, spName, resultName, num
     //console.dir(array)
     
     array.forEach(function(element) {
-        console.dir(element.nombre + " : " + element.tipo + " : " + element.valor)
+       // console.dir(element.nombre + " : " + element.tipo + " : " + element.valor)
         request.input(element.nombre, element.tipo, element.valor)    
     }, this);
 
@@ -235,7 +235,7 @@ function executeStoredProcedureInsertCliente(res, array, spName, resultName, num
         } else {
           // console.log(result.recordsets.length) // count of recordsets returned by the procedure 
          //   console.log(result.recordsets[0].length) // count of rows contained in first recordset 
-          console.log(result.recordset) // first recordset from result.recordsets 
+          //console.log(result.recordset) // first recordset from result.recordsets 
        //    console.log(result.returnValue) // procedure return value 
           //  console.log(result.output) // key/value collection of output values 
          //   console.log(result.rowsAffected) // array of numbers, each number represents the number of rows affected by executed statemens 
@@ -283,7 +283,7 @@ function executeStoredProcedureInsertVisita(res, array, spName, resultName, numb
         } else {
           // console.log(result.recordsets.length) // count of recordsets returned by the procedure 
          //   console.log(result.recordsets[0].length) // count of rows contained in first recordset 
-          console.log(result.recordset) // first recordset from result.recordsets 
+         // console.log(result.recordset) // first recordset from result.recordsets 
        //    console.log(result.returnValue) // procedure return value 
           //  console.log(result.output) // key/value collection of output values 
          //   console.log(result.rowsAffected) // array of numbers, each number represents the number of rows affected by executed statemens 
@@ -330,7 +330,7 @@ function executeStoredProcedureLogin(res, array, spName, resultName, numberRows,
         } else {
           // console.log(result.recordsets.length) // count of recordsets returned by the procedure 
          //   console.log(result.recordsets[0].length) // count of rows contained in first recordset 
-          console.log(result.recordset) // first recordset from result.recordsets 
+         // console.log(result.recordset) // first recordset from result.recordsets 
        //    console.log(result.returnValue) // procedure return value 
           //  console.log(result.output) // key/value collection of output values 
          //   console.log(result.rowsAffected) // array of numbers, each number represents the number of rows affected by executed statemens 

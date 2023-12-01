@@ -1,8 +1,8 @@
 module.exports = {
     port: process.env.PORT || 3050,
-    db: process.env.MSSQL || {server: '192.168.0.3',
-                              database: 'DistribucionDistralKCP25Octubre',
-                              user: 'marco',
+    db: process.env.MSSQL || {server: '192.168.0.7',
+                              database: 'DistribucionDistralKCP2023Prod',
+                              user: 'sa',
                               password: '123',
                               port: 1433},
     SECRET_TOKEN:'8caeM5V+HGJgzIHdPy68eBdMLZ6H1TNYqAX0rgRLauvYO0Z9KG/fuNQVumsEbYrNi5wkKKKZArUpTks5s3SiUg'

@@ -11,7 +11,7 @@ const accessDataModel = require('../models/access_data')
 function postPedidos(req, res){
     //console.log('GET /api/categoria-producto')
     //console.log(req.body)
-    console.log(req.params)
+    //console.log(req.params)
     const cod_cliente=req.params.code_id
     const credito=req.params.credito
 
@@ -33,7 +33,7 @@ function postDetallePedido(req, res){
   const oanumi=req.params.oanumi;
 
     const detalle=js2xmlparser.parse("row", req.body)
-    console.log(req.body)
+    //console.log(req.body)
     let array = [{"nombre":"tipo", "tipo": accessDataModel.sqlapi.Int, "valor": 27},
     {"nombre":"oanumi", "tipo": accessDataModel.sqlapi.Int, "valor": oanumi},
     {"nombre":"TO0011", "tipo": accessDataModel.sqlapi.Xml, "valor": detalle}]
